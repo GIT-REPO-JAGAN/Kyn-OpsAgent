@@ -1,0 +1,9 @@
+test_id,question,expected_incident
+1,Explain incident INC0010001,INC0010001
+2,Why are Outlook emails delayed?,INC0010002
+3,SAP users cannot sign in,INC0010003
+4,Server disk space is critically low,INC0010013
+5,Certificate expiration warning,INC0010019
+6,Find VPN incidents,INC0010001
+7,Account locks repeatedly,INC0010020
+8,DNS issues,INC0010014
