@@ -1,0 +1,10 @@
+{
+  "application_mode": "advisory",
+  "allow_write_operations": false,
+  "require_human_approval": true,
+  "allowed_operations": [
+    "search_incidents",
+    "retrieve_incident",
+    "recommend_resolution"
+  ]
+}
