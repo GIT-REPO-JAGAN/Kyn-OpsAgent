@@ -1,0 +1,4 @@
+streamlit>=1.39.0
+azure-ai-projects>=2.1.0
+azure-identity>=1.17.0
+python-dotenv>=1.0.1
