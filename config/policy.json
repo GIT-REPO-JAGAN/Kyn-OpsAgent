@@ -3,8 +3,19 @@
   "allow_write_operations": false,
   "require_human_approval": true,
   "allowed_operations": [
-    "search_incidents",
-    "retrieve_incident",
-    "recommend_resolution"
-  ]
+    "incident_lookup",
+    "historical_search",
+    "resolution_recommendation",
+    "active_incidents"
+  ],
+  "approval_required_operations": [
+    "servicenow_update"
+  ],
+  "blocked_operations": [
+    "delete_incident",
+    "reveal_credentials",
+    "disable_audit_logging",
+    "modify_security_policy"
+  ],
+  "maximum_retry_count": 3
 }
