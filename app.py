@@ -18,11 +18,14 @@ import logging
 from flask import Flask
 from dotenv import load_dotenv
 
+
+# Load local environment variables before importing Config.
+load_dotenv(".env", override=False)
+
 from Backend.config import Config
 
 
 def create_app() -> Flask:
-    load_dotenv()
 
     app = Flask(
         __name__,
