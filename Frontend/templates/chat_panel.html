@@ -1,0 +1,48 @@
+<section class="chat-panel">
+  <div class="chat-panel-header">
+    <div>
+      <div class="chat-title">Operations Agent</div>
+      <div class="chat-subtitle">Knowledge-grounded guidance for ServiceNow operations</div>
+    </div>
+    <span class="pill pill-outline">Advisory Only</span>
+  </div>
+
+  <div class="chat-messages" id="chatMessages">
+    <div class="msg msg-agent">
+      <div class="msg-avatar msg-avatar-agent">
+        <svg viewBox="0 0 24 24"><path d="M12 2l1.5 3.5L17 7l-3.5 1.5L12 12l-1.5-3.5L7 7l3.5-1.5L12 2z"/></svg>
+      </div>
+      <div class="msg-bubble">
+        <div class="msg-meta">OpsAgent · <span class="msg-time" data-now></span></div>
+        <div class="msg-text">Welcome to ServiceNow Operations Agent. Ask for an incident summary, active P1 incidents, probable cause guidance, or a safe recommended next action.</div>
+      </div>
+    </div>
+  </div>
+
+  <form class="chat-input-row" id="chatForm">
+    <textarea
+      id="chatInput"
+      class="chat-input"
+      maxlength="4000"
+      rows="1"
+      placeholder="Ask about an incident, active P1s, root cause, or next action…"></textarea>
+    <button type="submit" class="send-btn" id="sendBtn" aria-label="Send">
+      <svg viewBox="0 0 24 24"><path d="M4 12l16-8-6 8 6 8-16-8z"/></svg>
+    </button>
+  </form>
+  <div class="chat-input-footer">
+    <span>Enter to send · Shift + Enter for new line</span>
+    <span id="charCount">0/4000</span>
+  </div>
+
+  <div class="quick-actions">
+    <div class="quick-actions-label">Quick Actions</div>
+    <div class="quick-actions-sub">Start with a common operations request</div>
+    <div class="quick-actions-row">
+      <button class="chip" data-prompt="Give me a summary of all active P1 incidents right now.">Active P1 incidents</button>
+      <button class="chip" data-prompt="Summarize today's incidents across all priority levels.">Summarize today's incidents</button>
+      <button class="chip" data-prompt="What is the probable root cause for the most recent incident?">Root cause guidance</button>
+      <button class="chip" data-prompt="What is the recommended next action for the current highest priority incident?">Recommend next action</button>
+    </div>
+  </div>
+</section>
