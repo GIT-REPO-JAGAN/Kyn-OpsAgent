@@ -1,0 +1,4 @@
+flask==3.0.3
+python-dotenv==1.0.1
+azure-identity==1.17.1
+azure-ai-projects==1.0.0b6
