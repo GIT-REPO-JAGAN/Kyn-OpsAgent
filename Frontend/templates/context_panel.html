@@ -1,0 +1,42 @@
+<aside class="context-panel">
+  <div class="context-header">
+    <div class="chat-title">Agent Context</div>
+    <div class="chat-subtitle">Current connection details</div>
+  </div>
+
+  <dl class="context-list">
+    <div class="context-row">
+      <dt>Agent</dt>
+      <dd>{{ agent_name }}</dd>
+    </div>
+    <div class="context-row">
+      <dt>Knowledge base</dt>
+      <dd>{{ knowledge_base }}</dd>
+    </div>
+    <div class="context-row">
+      <dt>Mode</dt>
+      <dd class="mode-value" id="modeValue"><span class="mode-dot" id="modeDot"></span><span id="modeText">Checking…</span></dd>
+    </div>
+  </dl>
+
+  <div class="context-block">
+    <div class="context-block-title">
+      <svg viewBox="0 0 24 24"><path d="M4 5c3-2 6-2 8 0v14c-2-2-5-2-8 0V5zM20 5c-3-2-6-2-8 0v14c2-2 5-2 8 0V5z"/></svg>
+      Grounding
+    </div>
+    <p>Responses are expected to use the connected ServiceNow knowledge source.</p>
+  </div>
+
+  <div class="context-block">
+    <div class="context-block-title">
+      <svg viewBox="0 0 24 24"><path d="M12 2l8 4v6c0 5-3.5 8.5-8 10-4.5-1.5-8-5-8-10V6l8-4z"/></svg>
+      Safety Policy
+    </div>
+    <p>No write operations are performed from this interface. Human approval remains required.</p>
+  </div>
+
+  <button class="btn-outline-block" id="integrationStatusBtn">
+    View integration status
+    <svg viewBox="0 0 24 24"><path d="M7 17L17 7M9 7h8v8"/></svg>
+  </button>
+</aside>
