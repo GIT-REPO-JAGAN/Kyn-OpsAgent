@@ -1,18 +1,43 @@
-"""Page routes — render the Frontend templates."""
+from flask import (
+    Blueprint,
+    current_app,
+    redirect,
+    render_template,
+    url_for,
+)
 
-from flask import Blueprint, current_app, render_template
 
-pages_bp = Blueprint("pages", __name__)
+pages_bp = Blueprint(
+    "pages",
+    __name__,
+)
 
 
 @pages_bp.route("/")
-def shell():
-    """Render the app shell (Frontend/templates/shell.html), which includes
-    the chat panel and context panel partials."""
-    cfg = current_app.config
+def index():
+    return redirect(
+        url_for("pages.login"),
+    )
+
+
+@pages_bp.route("/login")
+def login():
+    return render_template(
+        "login.html",
+    )
+
+
+@pages_bp.route("/workspace")
+def workspace():
     return render_template(
         "shell.html",
-        agent_name=cfg["AZURE_AGENT_NAME"],
-        knowledge_base=cfg["AZURE_KNOWLEDGE_BASE"],
-        environment_label=cfg["APP_ENVIRONMENT"],
+        agent_name=current_app.config[
+            "AZURE_AGENT_NAME"
+        ],
+        knowledge_base=current_app.config[
+            "AZURE_KNOWLEDGE_BASE"
+        ],
+        environment=current_app.config[
+            "APP_ENVIRONMENT"
+        ],
     )
