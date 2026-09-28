@@ -1,0 +1,172 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Kyndryl ServiceNow Operations Agent login">
+
+    <title>Kyndryl OpsAgent Login</title>
+
+    <link
+        rel="stylesheet"
+        href="{{ url_for('static', filename='css/login.css') }}"
+    >
+</head>
+
+<body>
+    <main class="login-page">
+        <section class="login-panel" aria-labelledby="login-title">
+            <header class="login-panel__header">
+                <img
+                    class="login-logo"
+                    src="{{ url_for('static', filename='assets/LOGO.png') }}"
+                    alt="Kyndryl"
+                >
+
+                <span class="product-name">OpsAgent</span>
+
+                <span class="product-description">
+                    ServiceNow Advisory Console
+                </span>
+            </header>
+
+            <div class="login-panel__content">
+                <div class="login-heading">
+                    <span class="login-heading__eyebrow">
+                        SERVICENOW OPERATIONS
+                    </span>
+
+                    <h1 id="login-title">
+                        Sign in to AI Advisory Workspace
+                    </h1>
+
+                    <p>
+                        Connect to an approved Microsoft Foundry project
+                        and continue to the ServiceNow operations workspace.
+                    </p>
+                </div>
+
+                <form id="login-form" class="login-form" novalidate>
+                    <div class="form-field">
+                        <label for="project-endpoint">
+                            Azure Project Endpoint
+                        </label>
+
+                        <input
+                            id="project-endpoint"
+                            name="project_endpoint"
+                            type="url"
+                            inputmode="url"
+                            autocomplete="off"
+                            maxlength="500"
+                            placeholder="Enter the approved Foundry project endpoint"
+                            required
+                        >
+
+                        <span class="form-field__hint">
+                            Required format: HTTPS Foundry URL ending in
+                            /api/projects/project-name
+                        </span>
+
+                        <span
+                            id="endpoint-error"
+                            class="form-field__error"
+                            role="alert"
+                        ></span>
+                    </div>
+
+                    <button
+                        id="microsoft-login-button"
+                        class="microsoft-button"
+                        type="button"
+                    >
+                        <span class="microsoft-button__icon" aria-hidden="true">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </span>
+
+                        <span>Sign in with Microsoft</span>
+                    </button>
+
+                    <button
+                        id="preview-button"
+                        class="preview-button"
+                        type="submit"
+                    >
+                        Continue to workspace preview
+                    </button>
+
+                    <div
+                        id="login-notice"
+                        class="login-notice"
+                        role="status"
+                        aria-live="polite"
+                    >
+                        Microsoft Entra authentication will be connected
+                        in the next implementation stage.
+                    </div>
+                </form>
+            </div>
+
+            <footer class="login-panel__footer">
+                <span>Advisory access only</span>
+                <span>Human approval required</span>
+            </footer>
+        </section>
+
+        <section class="login-information" aria-label="Application information">
+            <article class="information-card">
+                <span class="information-card__icon" aria-hidden="true">
+                    MS
+                </span>
+
+                <div>
+                    <h2>Secure Microsoft sign-in</h2>
+
+                    <p>
+                        Authentication will be performed by Microsoft Entra ID.
+                        The application will not collect Microsoft passwords.
+                    </p>
+                </div>
+            </article>
+
+            <article class="information-card">
+                <span class="information-card__icon" aria-hidden="true">
+                    KB
+                </span>
+
+                <div>
+                    <h2>Knowledge-grounded guidance</h2>
+
+                    <p>
+                        The agent provides advisory responses grounded in the
+                        configured ServiceNow knowledge source.
+                    </p>
+                </div>
+            </article>
+
+            <article class="information-card">
+                <span class="information-card__icon" aria-hidden="true">
+                    AI
+                </span>
+
+                <div>
+                    <h2>Advisory-only policy</h2>
+
+                    <p>
+                        No ServiceNow write operation is performed by this
+                        interface. Human approval remains required.
+                    </p>
+                </div>
+            </article>
+        </section>
+    </main>
+
+    <script
+        src="{{ url_for('static', filename='js/login.js') }}"
+        defer
+    ></script>
+</body>
+</html>
