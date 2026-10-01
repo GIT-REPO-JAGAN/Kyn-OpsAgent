@@ -1,0 +1,43 @@
+properties:
+  managedEnvironmentId: /subscriptions/c058e84e-b050-4ef6-ba77-5119cff238e8/resourceGroups/rg-apod-lab/providers/Microsoft.App/managedEnvironments/jk-cae-opsagent-dev
+
+  configuration:
+    activeRevisionsMode: Single
+    ingress:
+      external: true
+      allowInsecure: false
+      targetPort: 8080
+      transport: auto
+
+  template:
+    containers:
+      - name: jk-nginx
+        image: jkcontainerregistry.azurecr.io/jk-opsagent-nginx:v1
+        resources:
+          cpu: 0.25
+          memory: 0.5Gi
+
+      - name: jk-opsagent
+        image: jkcontainerregistry.azurecr.io/kyn-opsagent:v1
+        env:
+          - name: PORT
+            value: "8000"
+          - name: APP_ENVIRONMENT
+            value: Production
+          - name: LOG_LEVEL
+            value: INFO
+          - name: AZURE_PROJECT_ENDPOINT
+            value: https://jagan-1.services.ai.azure.com/api/projects/proj-default
+          - name: AZURE_AGENT_NAME
+            value: jk-service-now-opsagent
+          - name: AZURE_AGENT_VERSION
+            value: "3"
+          - name: AZURE_KNOWLEDGE_BASE
+            value: jk-service-now-kb
+        resources:
+          cpu: 0.5
+          memory: 1Gi
+
+    scale:
+      minReplicas: 1
+      maxReplicas: 2
