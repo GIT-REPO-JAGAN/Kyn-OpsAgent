@@ -1,0 +1,42 @@
+# Git
+.git
+.gitignore
+.github
+
+# Local environment and secrets
+.env
+.env.*
+!.env.example
+
+# Python virtual environments
+.venv
+venv
+env
+
+# Python cache
+__pycache__
+*.pyc
+*.pyo
+*.pyd
+
+# Test and coverage output
+.pytest_cache
+.coverage
+htmlcov
+
+# Local runtime files
+*.log
+*.pid
+flask.log
+streamlit.log
+flask.pid
+streamlit.pid
+
+# Editor files
+.vscode
+.idea
+.DS_Store
+
+# Local deployment artifacts
+*.tar
+*.zip
