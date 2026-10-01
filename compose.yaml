@@ -1,0 +1,18 @@
+services:
+  app:
+    image: kyn-opsagent:v1
+    env_file:
+      - .env
+    environment:
+      PORT: "8000"
+    ports:
+      - "8080:8080"
+    restart: unless-stopped
+
+  nginx:
+    image: jk-opsagent-nginx:v1
+    network_mode: "service:app"
+    depends_on:
+      app:
+        condition: service_started
+    restart: unless-stopped
