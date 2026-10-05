@@ -1,74 +1,79 @@
 # Kyn-OpsAgent
 
-Kyn-OpsAgent is a ServiceNow Operations AI Advisory Workspace built with Flask and Azure AI Foundry.
+Kyn-OpsAgent is an AI-powered ServiceNow Operations Advisory Workspace built using Flask and Azure AI Foundry. The solution enables operations teams to interact with an AI agent for incident analysis, troubleshooting guidance, operational insights, and knowledge retrieval.
 
-The application provides:
+---
 
-- Natural language operations assistance
-- Azure AI Foundry Agent integration
+## Key Features
+
 - ServiceNow incident analysis
+- Azure AI Foundry Agent integration
+- Natural language operational assistance
+- Knowledge-base grounded responses
 - Azure Managed Identity authentication
-- Nginx reverse proxy frontend
-- Azure Container Apps deployment
-- Streamlit demo launcher
+- Nginx reverse proxy architecture
+- Dockerized deployment
+- Azure Container Apps hosting
 
-The solution is containerized and deployed using Azure Container Apps with a multi-container architecture.
+---
 
-Kyn-OpsAgent/
-│
-├── app.py                       # Flask application entry point
-├── streamlit_app.py             # Streamlit launcher/demo UI
-├── requirements.txt
-├── Dockerfile                   # Backend container image
-├── compose.yaml                 # Local multi-container deployment
-├── containerapp.yaml            # Azure Container Apps definition
-├── README.md
-├── .env.example
-│
-├── Frontend/
-│   ├── templates/
-│   │   ├── shell.html
-│   │   ├── chat_panel.html
-│   │   └── context_panel.html
-│   │
-│   └── static/
-│       ├── css/
-│       │   ├── shell.css
-│       │   └── operations_chat.css
-│       │
-│       ├── js/
-│       │   ├── shell.js
-│       │   └── operations_chat.js
-│       │
-│       └── assets/
-│
-├── Backend/
-│   ├── config.py
-│   └── routes/
-│       ├── pages.py
-│       └── chat_api.py
-│
-├── Azure_Operations/
-│   └── agent_client.py
-│
-└── nginx/
-    ├── Dockerfile
-    └── nginx.conf
-
-
-## Architecture
+## Solution Architecture
 
 ```text
-Browser
-    │
-    ▼
-Nginx Reverse Proxy
-    │
-    ▼
-Flask API
-    │
-    ▼
-Azure AI Foundry Agent
-    │
-    ▼
-Grounding / Knowledge Base
+┌──────────────┐
+│   Browser    │
+└──────┬───────┘
+       │ HTTPS
+       ▼
+┌──────────────┐
+│    Nginx     │
+│ Reverse Proxy│
+└──────┬───────┘
+       │
+       ▼
+┌──────────────┐
+│ Flask Backend│
+│ Kyn-OpsAgent │
+└──────┬───────┘
+       │ Managed Identity
+       ▼
+┌──────────────┐
+│ Azure AI     │
+│ Foundry Agent│
+└──────┬───────┘
+       │
+       ▼
+┌──────────────┐
+│ Knowledge    │
+│ Base         │
+└──────────────┘
+
+
+Kyn-OpsAgent
+│
+├── Application
+│   ├── app.py
+│   ├── streamlit_app.py
+│   └── requirements.txt
+│
+├── Frontend
+│   ├── HTML Templates
+│   ├── CSS Styles
+│   ├── JavaScript Components
+│   └── Static Assets
+│
+├── Backend
+│   ├── Configuration
+│   └── API Routes
+│
+├── Azure Operations
+│   └── Azure AI Foundry Integration
+│
+├── Nginx
+│   ├── Reverse Proxy Configuration
+│   └── Container Definition
+│
+└── Deployment
+    ├── Dockerfile
+    ├── compose.yaml
+    └── containerapp.yaml
